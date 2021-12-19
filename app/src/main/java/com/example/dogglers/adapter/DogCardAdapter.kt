@@ -58,10 +58,10 @@ class DogCardAdapter(
 
     override fun onBindViewHolder(holder: DogCardViewHolder, position: Int) {
         var dog = dogsData[position]
+        val resources = context?.resources
         holder.dogPhoto.setImageResource(dog.imageResourceId)
         holder.dogName.text = dog.name
-        holder.dogAge.text = dog.age
-        val resources = context?.resources
+        holder.dogAge.text = resources?.getString(R.string.dog_age, dog.age)
         holder.dogHobbies.text = resources?.getString(R.string.dog_hobbies, dog.hobbies)
     }
 }
